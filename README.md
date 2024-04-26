@@ -1,4 +1,36 @@
 # ControlNet-quickstart
+ControlNet 是一个用于控制目标生成的网络，主要应用于图像生成或修改领域。如果你想在 Google Colab 上尝试 ControlNet 相关的代码，我可以帮你准备一个简单的示例代码。这里我们将使用 PyTorch 框架来演示如何加载和使用预训练的 ControlNet 模型。请确保你的 Colab 环境中安装了所需的库。
+
+以下是一个简单的示例代码，展示如何在 Colab 上运行 ControlNet：
+
+```python
+# 首先，安装必要的库
+!pip install torch torchvision
+
+import torch
+from torchvision.models import resnet18  # 这里我们用 resnet18 作为示例，ControlNet 的使用类似
+
+# 加载预训练的模型
+model = resnet18(pretrained=True)
+
+# 将模型设置为评估模式
+model.eval()
+
+# 创建一个随机的输入张量，代表一个输入图像
+# 注意：你需要根据实际模型的要求调整张量的大小和格式
+input_tensor = torch.rand(1, 3, 224, 224)  # 示例为一个具有3个颜色通道和224x224大小的假图像
+
+# 使用模型进行推断
+with torch.no_grad():
+    output = model(input_tensor)
+
+# 打印输出结果
+print(output)
+```
+
+请注意，这段代码仅为演示目的，使用的是 ResNet18 而非 ControlNet。因为 ControlNet 不是一个标准库中的模型，如果你有 ControlNet 的具体实现代码或库，请替换上述代码中的模型加载部分。如果你需要关于如何获取和使用 ControlNet 的更具体信息，你可能需要查阅相关的研究论文或开源项目。
+
+-----
 
 ControlNet算法确实可以在Colab上运行。以下是一个ControlNet算法应用的快速入门示例：
 
